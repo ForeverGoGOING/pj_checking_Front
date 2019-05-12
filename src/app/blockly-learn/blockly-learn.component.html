@@ -1,0 +1,11 @@
+<app-header></app-header>
+<section id="navBar" style="">
+  <mat-grid-list cols="1" rowHeight="4:1">
+    <mat-grid-tile *ngFor="let designPattern of designPatterns" [class.selected]="designPattern === selected"
+                   (click)="onSelect(designPattern);">
+      {{designPattern}}
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>
+<app-patterns-introduction *ngIf="selected === '设计模式'" (next)="dealNext($event)"></app-patterns-introduction>
+<app-factory-pattern-introduction *ngIf="selected === '工厂模式'" (next)="dealNext($event)"></app-factory-pattern-introduction>
